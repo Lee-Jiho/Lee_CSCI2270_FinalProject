@@ -1,7 +1,7 @@
 # Lee_CSCI2270_FinalProject
 Battleship
 
-This program is a single player battleship game where the user is prompted to guess coordinates of spots on the grid to find enemy ships.  There is no one playing against the user.
+This program is a single player battleship game where the user is prompted to guess coordinates of spots on the grid to find enemy ships.  There is no one playing against the user.  Rather, the goal is to find all the ships in the least amount of moves possible.
 
 How to run:
 Run the file through Code Blocks/Terminal and the user will be shown a menu explaining the game.
