@@ -1,5 +1,5 @@
 # Lee_CSCI2270_FinalProject
-Battleship
+Single Linked Lists
 
 This program lets the user create a single linked list and manipulate the list in multiple ways (add, remove, etc.)
 
