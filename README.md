@@ -23,4 +23,4 @@ Contributors:
 - Michael Crozier
 
 Open issues/bugs:
-none
+When a character that isn't a number is entered for the rows/columns, the program freezes or gets stuck at the "press any key to continue" option.
