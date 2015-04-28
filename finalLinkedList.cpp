@@ -312,3 +312,129 @@ void singleLinkedList::deleteNode()
         cout<<"Element Deleted"<<endl;
     }
 }
+
+/*
+ * User can change the value of a node at a certain position
+ * Precondition: a list must exist and the position of the node must be in range of list
+ * Postcondition: value of node in nth position will change to new value
+ */
+void singleLinkedList::update()
+{
+    int value, pos, i;
+    if (start == NULL)
+    {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    cout<<"Enter the node position to be updated: ";
+    cin>>pos;
+    cout<<"Enter the new value: ";
+    cin>>value;
+    struct node *s, *ptr;
+    s = start;
+    if (pos == 1)
+    {
+        start->data = value;
+    }
+    else
+    {
+        for (i = 0;i < pos - 1;i++)
+        {
+            if (s == NULL)
+            {
+                cout<<"There are less than "<<pos<<" elements";
+                return;
+            }
+            s = s->next;
+        }
+        s->data = value;
+    }
+    cout<<"Node Updated"<<endl;
+}
+
+/*
+ * Searches for a certain element/value in the list
+ * Precondition: a list must exist
+ * Postcondition: User will be told whether or not the value is in the list and if it is, what position it's in
+ */
+void singleLinkedList::search()
+{
+    int value, pos = 0;
+    bool flag = false;
+    if (start == NULL)
+    {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    cout<<"Enter the value to be searched: ";
+    cin>>value;
+    struct node *s;
+    s = start;
+    while (s != NULL)
+    {
+        pos++;
+        if (s->data == value)
+        {
+            flag = true;
+            cout<<"Element "<<value<<" is found at position "<<pos<<endl;
+        }
+        s = s->next;
+    }
+    if (!flag)
+        cout<<"Element "<<value<<" not found in the list"<<endl;
+}
+
+/*
+ * Reverses the linked list
+ * Precondition: list must exist
+ * Postcondition: linked list that the user created will be reversed
+ */
+void singleLinkedList::reverse()
+{
+    struct node *ptr1, *ptr2, *ptr3;
+    if (start == NULL)
+    {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    if (start->next == NULL)
+    {
+        return;
+    }
+    ptr1 = start;
+    ptr2 = ptr1->next;
+    ptr3 = ptr2->next;
+    ptr1->next = NULL;
+    ptr2->next = ptr1;
+    while (ptr3 != NULL)
+    {
+        ptr1 = ptr2;
+        ptr2 = ptr3;
+        ptr3 = ptr3->next;
+        ptr2->next = ptr1;
+    }
+    start = ptr2;
+}
+
+/*
+ * Display Elements of a link list
+ * Precondition: list must exist
+ * Postcondition: currently built list will be displayed
+ */
+void singleLinkedList::display()
+{
+    struct node *tmp;
+    if (start == NULL)
+    {
+        cout<<"The List is Empty"<<endl;
+        return;
+    }
+    tmp = start;
+    cout<<"Elements of list are: "<<endl;
+    while (tmp != NULL)
+    {
+        cout<<tmp->data<<"->";
+        tmp = tmp->next;
+    }
+    cout<<"NULL"<<endl;
+}
