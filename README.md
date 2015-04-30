@@ -22,3 +22,5 @@ Contributors:
 
 Open issues/bugs:
 None
+
+Note: Battleship code didn't work out in the the end because we were coding it with arrays and not with structures we've used this semester so we changed it
