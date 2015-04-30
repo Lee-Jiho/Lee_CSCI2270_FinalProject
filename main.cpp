@@ -34,6 +34,7 @@ class singleLinkedList //declaring class
 
 int main() // main that contains the menu
 {
+    string stringChoice;
     int choice;
     int nodes;
     int element;
@@ -57,7 +58,8 @@ int main() // main that contains the menu
         cout<<"9.Reverse My Linked List "<<endl;
         cout<<"10.Exit "<<endl;
         cout<<"Enter your choice: ";
-        cin>>choice;
+        getline(cin, stringChoice);
+        choice = atoi(stringChoice.c_str());
         switch(choice)
         {
         //
@@ -144,9 +146,15 @@ node *singleLinkedList::createNode(int value)
  */
 void singleLinkedList::insertNodeBeginning()
 {
-    int value;
-    cout<<"Enter the value to be inserted: ";
-    cin>>value;
+    string stringValue;
+    cout<<"Enter the value to be inserted: "<<endl;
+    getline(cin, stringValue);
+    if(stringValue.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_+-=[]\{}|;':,./<>?") == string::npos)
+    {
+        cout<<"Invalid input"<<endl;
+        return;
+    }
+    int value = atoi(stringValue.c_str());
     struct node *tmp, *p;
     tmp = createNode(value);
     if (start == NULL)
@@ -170,9 +178,15 @@ void singleLinkedList::insertNodeBeginning()
  */
 void singleLinkedList::insertNodeLast()
 {
-    int value;
-    cout<<"Enter the value to be inserted: ";
-    cin>>value;
+    string stringValue;
+    cout<<"Enter the value to be inserted: "<<endl;
+    getline(cin, stringValue);
+    if(stringValue.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_+-=[]\{}|;':,./<>?") == string::npos)
+    {
+        cout<<"Invalid input"<<endl;
+        return;
+    }
+    int value = atoi(stringValue.c_str());
     struct node *tmp, *s;
     tmp = createNode(value);
     s = start;
@@ -193,12 +207,26 @@ void singleLinkedList::insertNodeLast()
 void singleLinkedList::insertNodePosition()
 {
     int value, pos, counter = 0;
-    cout<<"Enter the value to be inserted: ";
-    cin>>value;
+    string stringPos;
+    string stringValue;
+    cout<<"Enter the value to be inserted: "<<endl;
+    getline(cin, stringValue);
+    if(stringValue.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_+-=[]\{}|;':,./<>?") == string::npos)
+    {
+        cout<<"Invalid input"<<endl;
+        return;
+    }
+    value = atoi(stringValue.c_str());
     struct node *tmp, *s, *ptr;
     tmp = createNode(value);
-    cout<<"Enter the position at which the node will be inserted: ";
-    cin>>pos;
+    cout<<"Enter the position at which the node will be inserted: "<<endl;
+    getline(cin, stringPos);
+    if(stringPos.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_+-=[]\{}|;':,./<>?") == string::npos)
+    {
+        cout<<"Invalid input"<<endl;
+        return;
+    }
+    pos = atoi(stringPos.c_str());
     int i;
     s = start;
     while (s != NULL)
@@ -275,13 +303,20 @@ void singleLinkedList::sort()
 void singleLinkedList::deleteNode()
 {
     int pos, i, counter = 0;
+    string stringPos;
     if (start == NULL)
     {
         cout<<"List is empty"<<endl;
         return;
     }
     cout<<"Enter the position of value to be deleted: ";
-    cin>>pos;
+    getline(cin, stringPos);
+    if(stringPos.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_+-=[]\{}|;':,./<>?") == string::npos)
+    {
+        cout<<"Invalid input"<<endl;
+        return;
+    }
+    pos = atoi(stringPos.c_str());
     struct node *s, *ptr;
     s = start;
     if (pos == 1)
@@ -322,15 +357,29 @@ void singleLinkedList::deleteNode()
 void singleLinkedList::update()
 {
     int value, pos, i;
+    string stringPos;
+    string stringValue;
     if (start == NULL)
     {
         cout<<"List is empty"<<endl;
         return;
     }
-    cout<<"Enter the node position to be updated: ";
-    cin>>pos;
-    cout<<"Enter the new value: ";
-    cin>>value;
+    cout<<"Enter the node position to be updated: "<<endl;
+    getline(cin, stringPos);
+    if(stringPos.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_+-=[]\{}|;':,./<>?") == string::npos)
+    {
+        cout<<"Invalid input"<<endl;
+        return;
+    }
+    pos = atoi(stringPos.c_str());
+    cout<<"Enter the new value: "<<endl;
+    getline(cin, stringValue);
+    if(stringValue.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_+-=[]\{}|;':,./<>?") == string::npos)
+    {
+        cout<<"Invalid input"<<endl;
+        return;
+    }
+    value = atoi(stringValue.c_str());
     struct node *s, *ptr;
     s = start;
     if (pos == 1)
@@ -362,13 +411,20 @@ void singleLinkedList::search()
 {
     int value, pos = 0;
     bool flag = false;
+    string stringValue;
     if (start == NULL)
     {
         cout<<"List is empty"<<endl;
         return;
     }
-    cout<<"Enter the value to be searched: ";
-    cin>>value;
+    cout<<"Enter the value to be searched: "<<endl;
+    getline(cin, stringValue);
+    if(stringValue.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`~!@#$%^&*()_+-=[]\{}|;':,./<>?") == string::npos)
+    {
+        cout<<"Invalid input"<<endl;
+        return;
+    }
+    value = atoi(stringValue.c_str());
     struct node *s;
     s = start;
     while (s != NULL)
